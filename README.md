@@ -92,7 +92,7 @@ Most multi-agent evaluations implicitly fix a point in this space and report per
 
 Standard evaluation pairs agents with themselves (self-play) or a narrow set of partners. This rewards strategies that exploit specific conventions and punishes strategies that are robust but less specialized.
 
-This framework adopts a **meta-game perspective**:
+This framework adopts a **meta-game perspective**, building on the empirical game-theoretic analysis approach introduced by Wellman (2006) and extended by Li and Wellman (2023):
 
 1. Construct a diverse **policy library** for each setting (learned policies, heuristics, and where appropriate, LLM-based agents).
 2. Evaluate via **cross-play**: each agent is paired against many partners from the library.
