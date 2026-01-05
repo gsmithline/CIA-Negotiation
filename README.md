@@ -2,7 +2,7 @@
 
 ## Motivation
 
-Cooperation in multi-agent systems is typically evaluated with aggregate metrics—team score, social welfare, win rate. These numbers obscure the underlying causes of success or failure:
+Cooperation in multi-agent systems is typically evaluated with aggregate metrics like team score, social welfare, and win rate. These numbers obscure the underlying causes of success or failure:
 
 - Agents may fail despite **aligned incentives** because coordination is difficult.
 - Agents may fail despite **easy coordination** because incentives are misaligned.
@@ -66,12 +66,12 @@ The two axes define a space where different cooperative challenges live:
 
 Each quadrant poses a qualitatively different challenge:
 
-| Quadrant | Challenge | Failure Mode |
-|----------|-----------|--------------|
-| High CIA, Low Opacity | Pure coordination—find compatible strategies | Convention mismatch |
-| High CIA, High Opacity | Coordinate under uncertainty | Misreading partner state/intent |
-| Low CIA, Low Opacity | Negotiate fair division with known preferences | Strategic holdout, inefficient conflict |
-| Low CIA, High Opacity | Negotiate under asymmetric/private information | Exploitation, signaling failures, adverse selection |
+| Quadrant | Challenge |
+|----------|-----------|
+| High CIA, Low Opacity | Pure coordination: find compatible strategies |
+| High CIA, High Opacity | Coordinate under uncertainty |
+| Low CIA, Low Opacity | Negotiate fair division with known preferences |
+| Low CIA, High Opacity | Negotiate under asymmetric/private information |
 
 ## Why This Framework
 
