@@ -1,0 +1,54 @@
+Project overview: CIA × Information Opacity for measuring cooperation
+
+Motivation
+
+“Cooperation” in multi-agent RL is often evaluated with a single number (team score, welfare, win rate). That can hide why agents succeed or fail:
+	•	Sometimes incentives are aligned, but agents fail because coordination is hard.
+	•	Sometimes coordination is easy, but agents fail because incentives are misaligned (bargaining, contested surplus, social dilemmas).
+	•	Agents can look strong in self-play yet collapse with new partners, revealing brittle conventions rather than robust cooperation.
+
+This project is a measurement-first effort: instead of asking “who got the highest score?”, it asks when cooperation is achievable, when it breaks, and which agents are robust across regimes.
+
+Core question
+
+How do cooperation outcomes and robustness change as we vary (i) incentive alignment and (ii) information difficulty?
+
+Two organizing axes
+
+1) Common-Interest Alignment (CIA)
+CIA captures how aligned agents’ incentives are.
+	•	High CIA: agents largely share objectives; cooperation is mostly coordination.
+	•	Low CIA: agents have partially conflicting objectives; cooperation involves contested surplus, negotiation dynamics, or social dilemmas.
+
+CIA can be placed on the map using payoff/return divergence statistics as an initial proxy, and refined over time.
+
+2) Information Opacity (O)
+Opacity captures how hard it is for agents to infer the state of the world and each other.
+
+We increase opacity via:
+	•	partial observability (limited view radius / occlusion),
+	•	observation noise,
+	•	delayed or sparse feedback,
+	•	private values/types (e.g., bargaining),
+	•	weak public monitoring.
+
+The goal is to make “information difficulty” a controlled dial rather than an uncontrolled nuisance.
+
+What this project produces
+
+A benchmark-style CIA × Opacity map that organizes multi-agent settings by incentive structure and information difficulty, plus an evaluation procedure that reveals:
+	•	which agent classes succeed in which regimes,
+	•	how performance degrades as incentives become more contested or information becomes more opaque,
+	•	whether “cooperation” generalizes across partners and environment variants.
+
+Evaluation protocol (high level)
+	1.	Select environments that cover different regions of the CIA × opacity map (e.g., teamwork, imperfect-information cooperation, social dilemmas, bargaining).
+	2.	Create controlled variants within each environment that adjust CIA and/or opacity (a small number of levels per axis).
+	3.	Build a diverse policy library per setting (RL baselines + heuristics; optionally LLM agents for negotiation-like settings).
+	4.	Evaluate using cross-play, not just self-play: pair each agent with many partners and measure both average outcomes and partner-dependent variance.
+	5.	Report a compact metric suite:
+	•	outcome metrics (welfare/success),
+	•	robustness metrics (partner-swap generalization, rank stability across CIA/opacity sweeps),
+	•	optional coordination diagnostics (e.g., conditional MI-style coupling) to help interpret how agents coordinate.
+
+This framework is intended to support careful, comparable claims about cooperation by separating incentives from information, and by treating partner generalization as a first-class evaluation target.
